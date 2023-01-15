@@ -1,1 +1,3 @@
-# svelte_sapper_sveltekit
+# Svelte
+# Sapper
+# Sveltekit
