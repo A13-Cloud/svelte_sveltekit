@@ -1,4 +1,6 @@
 <script>
+    import Question from "./Question.svelte";
+
     let quiz = getQuiz();
 
     async function getQuiz() {
@@ -19,6 +21,11 @@
     Loading...
 {:then data}
     <p>{data.results[0]["question"]}</p>
+
+    {#each data.results as question}
+        <Question questionsData={question}/>
+    {/each}
+
 {/await}
 
 <!-- STYLE -->
