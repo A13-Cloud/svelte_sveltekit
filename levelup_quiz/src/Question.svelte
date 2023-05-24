@@ -1,3 +1,4 @@
+<!-- JS -->
 <script>
     export let questionsData;
     export let nextQuestion;

@@ -1,10 +1,14 @@
 <script>
+    // IMPORTS
     import Question from "./Question.svelte";
     import {fly} from "svelte/transition";
+    import Modal from "./Modal.svelte";
 
+    // LOCAL VARIABLES
     let quiz = getQuiz();
     let activeQuestion = 0;
     let myScore = 0;
+    let isModalOpen = false;
 
     async function getQuiz() {
         const response = await fetch("https://opentdb.com/api.php?amount=10&category=21&type=multiple");
@@ -20,15 +24,15 @@
     }
 
     const resetQuiz = () => {
+        isModalOpen = false;
         myScore = 0;
         activeQuestion = 0;
         quiz = getQuiz();
     }
 
     // Reactive Statement
-    $: if (myScore > 7) {
-        alert("You Won!");
-        resetQuiz();
+    $: if (myScore > 0) {
+        isModalOpen = true;
     }
 
 </script>
@@ -56,6 +60,14 @@
     {/each}
 
 {/await}
+
+{#if isModalOpen}
+    <Modal>
+        <h2>You Won!</h2>
+        <p>Congratulations</p>
+        <button on:click={resetQuiz}>Start Over</button>
+    </Modal>
+{/if}
 
 <!-- STYLE -->
 <style>
