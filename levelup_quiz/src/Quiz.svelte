@@ -1,5 +1,6 @@
 <script>
     import Question from "./Question.svelte";
+    import {fly} from "svelte/transition";
 
     let quiz = getQuiz();
     let activeQuestion = 0;
@@ -7,8 +8,7 @@
 
     async function getQuiz() {
         const response = await fetch("https://opentdb.com/api.php?amount=10&category=21&type=multiple");
-
-        return response.json();
+        return await response.json();
     }
 
     const nextQuestion = () => {
@@ -38,11 +38,13 @@
 
     {#each data.results as question, index}
         {#if activeQuestion === index}
-            <Question
-                questionsData={question}
-                {nextQuestion}
-                {addToScore}
-            />
+            <div in:fly={{x: 100}} out:fly={{x: -200}} class="fly_wrapper">
+                <Question
+                        questionsData={question}
+                        {nextQuestion}
+                        {addToScore}
+                />
+            </div>
         {/if}
     {/each}
 
@@ -50,5 +52,7 @@
 
 <!-- STYLE -->
 <style>
-
+    .fly_wrapper {
+        position: absolute;
+    }
 </style>
