@@ -21,13 +21,20 @@
 
     const resetQuiz = () => {
         myScore = 0;
+        activeQuestion = 0;
         quiz = getQuiz();
+    }
+
+    // Reactive Statement
+    $: if (myScore > 7) {
+        alert("You Won!");
+        resetQuiz();
     }
 
 </script>
 
 <!-- HTML -->
-<button on:click={resetQuiz}>Start New Quiz</button>
+<button on:click|once={resetQuiz}>Start New Quiz</button>
 
 <h3>My Score: {myScore}</h3>
 <h4>Question #{activeQuestion + 1}</h4>

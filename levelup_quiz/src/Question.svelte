@@ -38,16 +38,17 @@
 
 </script>
 
+<!-- HTML -->
 <h3>{@html questionsData.question}</h3>
 
 {#if isAnswered}
-    <h4>
+    <h5 class:isCorrect>
         {#if isCorrect}
             You got it right
         {:else}
             You goofed up
         {/if}
-    </h4>
+    </h5>
 {/if}
 
 {#each allAnswers as answer}
@@ -59,3 +60,14 @@
 {#if isAnswered}
     <button on:click={nextQuestion}>Next Question</button>
 {/if}
+
+<!-- STYLE -->
+<style>
+    h5 {
+        color: red;
+    }
+
+    .isCorrect {
+        color: forestgreen;
+    }
+</style>
