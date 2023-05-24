@@ -1,5 +1,7 @@
 <script>
     export let questionsData;
+    export let nextQuestion;
+    export let addToScore;
 
     let isCorrect;
     let isAnswered = false;
@@ -28,6 +30,10 @@
     const checkAnswer = (correct) => {
         isAnswered = true;
         isCorrect = correct;
+
+        if (correct) {
+            addToScore();
+        }
     }
 
 </script>
@@ -45,7 +51,11 @@
 {/if}
 
 {#each allAnswers as answer}
-    <button disabled={isAnswered} on:click={() =>  checkAnswer(answer.correct)}>
+    <button disabled={isAnswered} on:click={() => checkAnswer(answer.correct)}>
         {@html answer.answer}
     </button>
 {/each}
+
+{#if isAnswered}
+    <button on:click={nextQuestion}>Next Question</button>
+{/if}
