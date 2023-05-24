@@ -8,6 +8,6 @@
 
 <style>
     :global(h4) {
-        color: red;
+        color: green;
     }
 </style>
