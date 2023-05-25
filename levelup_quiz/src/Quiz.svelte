@@ -47,8 +47,8 @@
         {#if activeQuestion === index}
             <div in:fly={{x: 100}} out:fly={{x: -200}} class="fly_wrapper">
                 <Question
-                    questionsData={question}
-                    {nextQuestion}
+                        questionsData={question}
+                        {nextQuestion}
                 />
             </div>
         {/if}
