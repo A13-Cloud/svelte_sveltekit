@@ -51,9 +51,9 @@
         {#if activeQuestion === index}
             <div in:fly={{x: 100}} out:fly={{x: -200}} class="fly_wrapper">
                 <Question
-                        questionsData={question}
-                        {nextQuestion}
-                        {addToScore}
+                    questionsData={question}
+                    {nextQuestion}
+                    {addToScore}
                 />
             </div>
         {/if}
@@ -62,7 +62,7 @@
 {/await}
 
 {#if isModalOpen}
-    <Modal>
+    <Modal on:close={resetQuiz}>
         <h2>You Won!</h2>
         <p>Congratulations</p>
         <button on:click={resetQuiz}>Start Over</button>
