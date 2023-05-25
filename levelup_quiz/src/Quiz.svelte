@@ -27,46 +27,68 @@
     }
 
     // Reactive Statement
-    $: if ($myScore > 0) {
+    $: if ($myScore >= 3) {
         isModalOpen = true;
     }
 
 </script>
 
 <!-- HTML -->
-<button on:click|once={resetQuiz}>Start New Quiz</button>
+<div class="quiz__content">
+    <div class="new-quiz__button">
+        <button class="new-quiz" on:click|once={resetQuiz}>
+            <span class="new-quiz__text">
+                <b class="new-quiz__bold-text">
+                    Start New Quiz
+                </b>
+            </span>
+        </button>
+    </div>
 
-<h3>My Score: {$myScore}</h3>
-<h4>Question #{activeQuestion + 1}</h4>
+    <div class="quiz__my-score">
+        <span class="score-text">
+            My Score: <b class="score-count">{$myScore}</b>
+        </span>
+    </div>
 
-{#await quiz}
-    Loading...
-{:then data}
+    <div class="quiz__question">
+        <b class="question-text">Question</b> #{activeQuestion + 1}
+    </div>
 
-    {#each data.results as question, index}
-        {#if activeQuestion === index}
-            <div in:fly={{x: 100}} out:fly={{x: -200}} class="fly_wrapper">
-                <Question
+    {#await quiz}
+        <span class="loading-text">
+            Loading...
+        </span>
+    {:then data}
+        {#each data.results as question, index}
+            {#if activeQuestion === index}
+                <div in:fly={{x: 100}} out:fly={{x: -200}} class="question_wrapper">
+                    <Question
                         questionsData={question}
                         {nextQuestion}
-                />
-            </div>
-        {/if}
-    {/each}
+                    />
+                </div>
+            {/if}
+        {/each}
+    {/await}
 
-{/await}
+    {#if isModalOpen}
+        <Modal on:close={resetQuiz}>
+            <h2>You Won!</h2>
+            <p>Congratulations</p>
+            <button on:click={resetQuiz}>Start Over</button>
+        </Modal>
+    {/if}
+</div>
 
-{#if isModalOpen}
-    <Modal on:close={resetQuiz}>
-        <h2>You Won!</h2>
-        <p>Congratulations</p>
-        <button on:click={resetQuiz}>Start Over</button>
-    </Modal>
-{/if}
 
 <!-- STYLE -->
 <style>
-    .fly_wrapper {
+    .question_wrapper {
         position: absolute;
+
+
+
+        
     }
 </style>
