@@ -1,9 +1,13 @@
 <!-- JS -->
 <script>
+    // IMPORTS
+    import {myScore} from "./store";
+
+    // EXPORT VARIABLES
     export let questionsData;
     export let nextQuestion;
-    export let addToScore;
 
+    // LOCAL VARIABLES
     let isCorrect;
     let isAnswered = false;
 
@@ -25,7 +29,6 @@
     const shuffle = (array) => {
         array.sort(() => Math.random() - 0.5);
     }
-
     shuffle(allAnswers);
 
     const checkAnswer = (correct) => {
@@ -33,7 +36,7 @@
         isCorrect = correct;
 
         if (correct) {
-            addToScore();
+            myScore.update(score => score + 1);
         }
     }
 

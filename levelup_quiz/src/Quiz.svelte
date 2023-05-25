@@ -3,11 +3,11 @@
     import Question from "./Question.svelte";
     import {fly} from "svelte/transition";
     import Modal from "./Modal.svelte";
+    import {myScore} from "./store";
 
     // LOCAL VARIABLES
     let quiz = getQuiz();
     let activeQuestion = 0;
-    let myScore = 0;
     let isModalOpen = false;
 
     async function getQuiz() {
@@ -19,19 +19,15 @@
         activeQuestion = activeQuestion + 1;
     }
 
-    const addToScore = () => {
-        myScore = myScore + 1;
-    }
-
     const resetQuiz = () => {
         isModalOpen = false;
-        myScore = 0;
+        myScore.set(0);
         activeQuestion = 0;
         quiz = getQuiz();
     }
 
     // Reactive Statement
-    $: if (myScore > 0) {
+    $: if ($myScore > 0) {
         isModalOpen = true;
     }
 
@@ -40,7 +36,7 @@
 <!-- HTML -->
 <button on:click|once={resetQuiz}>Start New Quiz</button>
 
-<h3>My Score: {myScore}</h3>
+<h3>My Score: {$myScore}</h3>
 <h4>Question #{activeQuestion + 1}</h4>
 
 {#await quiz}
@@ -53,7 +49,6 @@
                 <Question
                     questionsData={question}
                     {nextQuestion}
-                    {addToScore}
                 />
             </div>
         {/if}
