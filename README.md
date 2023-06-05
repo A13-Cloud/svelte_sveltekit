@@ -1,3 +1,2 @@
 # Svelte
-# Sapper
 # Sveltekit
