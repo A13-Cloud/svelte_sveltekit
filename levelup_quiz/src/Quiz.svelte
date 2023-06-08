@@ -86,9 +86,5 @@
 <style>
     .question_wrapper {
         position: absolute;
-
-
-
-        
     }
 </style>
