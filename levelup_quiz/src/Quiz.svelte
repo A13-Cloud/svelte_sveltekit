@@ -84,7 +84,34 @@
 
 <!-- STYLE -->
 <style>
+    .quiz__content {}
+
+    .new-quiz__button {}
+
+    .new-quiz {}
+
+    .new-quiz__text {}
+
+    .new-quiz__bold-text {}
+
+    .quiz__my-score {}
+
+    .score-text {}
+
+    .score-count {}
+
+    .quiz__question {}
+
+    .question-text {}
+
+    .loading-text {}
+
     .question_wrapper {
         position: absolute;
     }
+
+
+
+
+
 </style>
