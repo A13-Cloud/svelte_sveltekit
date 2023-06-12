@@ -84,11 +84,20 @@
 
 <!-- STYLE -->
 <style>
-    .quiz__content {}
+    .quiz__content {
+        height: 50%;
+        margin: 20px;
+        border-radius: 15px;
+        background-color: white;
+    }
 
-    .new-quiz__button {}
+    .new-quiz__button {
+        text-align: end;
+        padding: 20px;
+    }
 
-    .new-quiz {}
+    .new-quiz {
+    }
 
     .new-quiz__text {}
 
