@@ -94,6 +94,7 @@
     .new-quiz__button {
         text-align: end;
         padding: 20px;
+        
     }
 
     .new-quiz {
