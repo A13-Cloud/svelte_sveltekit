@@ -94,13 +94,15 @@
     .new-quiz__button {
         text-align: end;
         padding: 20px;
-        
+
     }
 
     .new-quiz {
     }
 
-    .new-quiz__text {}
+    .new-quiz__text {
+        
+    }
 
     .new-quiz__bold-text {}
 
