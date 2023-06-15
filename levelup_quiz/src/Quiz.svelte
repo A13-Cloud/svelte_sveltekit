@@ -101,12 +101,16 @@
     }
 
     .new-quiz__text {
-        
+
     }
 
-    .new-quiz__bold-text {}
+    .new-quiz__bold-text {
 
-    .quiz__my-score {}
+    }
+
+    .quiz__my-score {
+        
+    }
 
     .score-text {}
 
