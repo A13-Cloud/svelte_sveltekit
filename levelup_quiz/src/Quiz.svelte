@@ -109,10 +109,12 @@
     }
 
     .quiz__my-score {
-        
+
     }
 
-    .score-text {}
+    .score-text {
+
+    }
 
     .score-count {}
 
