@@ -116,7 +116,9 @@
 
     }
 
-    .score-count {}
+    .score-count {
+
+    }
 
     .quiz__question {}
 
