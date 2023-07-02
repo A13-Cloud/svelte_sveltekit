@@ -120,7 +120,9 @@
 
     }
 
-    .quiz__question {}
+    .quiz__question {
+
+    }
 
     .question-text {}
 
