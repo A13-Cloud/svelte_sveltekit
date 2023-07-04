@@ -1,9 +1,9 @@
 <script>
     // IMPORTS
-    import Question from "./Question.svelte";
+    import Question from "../question/Question.svelte";
     import {fly} from "svelte/transition";
-    import Modal from "./Modal.svelte";
-    import {myScore} from "./store";
+    import Modal from "../modal/Modal.svelte";
+    import {myScore} from "../../store/store";
 
     // LOCAL VARIABLES
     let quiz = getQuiz();
@@ -19,11 +19,12 @@
         activeQuestion = activeQuestion + 1;
     }
 
-    const resetQuiz = () => {
+    const resetQuiz = (event) => {
         isModalOpen = false;
         myScore.set(0);
         activeQuestion = 0;
         quiz = getQuiz();
+        event.target.style.cursor = "no-drop";
     }
 
     // Reactive Statement
@@ -39,7 +40,7 @@
         <button class="new-quiz" on:click|once={resetQuiz}>
             <span class="new-quiz__text">
                 <b class="new-quiz__bold-text">
-                    Start New Quiz
+                    start new quiz
                 </b>
             </span>
         </button>
@@ -85,23 +86,35 @@
 <!-- STYLE -->
 <style>
     .quiz__content {
-        height: 50%;
+        height: calc(100% - 40px);
         margin: 20px;
         border-radius: 15px;
         background-color: white;
     }
 
     .new-quiz__button {
-        text-align: end;
+        display: flex;
+        justify-content: flex-end;
         padding: 20px;
-
+        border-radius: 15px 15px 0 0;
+        background-color: #8a718d;
     }
 
     .new-quiz {
+        padding: 8px;
+        border-radius: 15px;
+        border: none;
+        cursor: pointer;
+        transition: color 200ms, background-color 200ms;
+    }
+
+    .new-quiz:hover {
+        background-color: #524555;
+        color: #ffffff;
     }
 
     .new-quiz__text {
-
+        text-transform: capitalize;
     }
 
     .new-quiz__bold-text {

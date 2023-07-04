@@ -1,6 +1,6 @@
 <script>
     //IMPORTS
-    import Quiz from "./Quiz.svelte";
+    import Quiz from "../components/quiz/Quiz.svelte";
 </script>
 
 <!--  HTML  -->
@@ -44,7 +44,7 @@
         background-color: #524555;
 
       .level-up__app-content {
-        height: calc(100vh - 150px);
+        height: 500px;
         border: 2px solid dimgrey;
         border-radius: 15px;
       }

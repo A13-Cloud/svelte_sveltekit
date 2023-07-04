@@ -1,7 +1,7 @@
 <!-- JS -->
 <script>
     // IMPORTS
-    import {myScore} from "./store";
+    import {myScore} from "../../store/store";
 
     // EXPORT VARIABLES
     export let questionsData;
