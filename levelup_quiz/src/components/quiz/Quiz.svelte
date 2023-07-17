@@ -122,15 +122,25 @@
     }
 
     .quiz__my-score {
-
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        border-radius: 0 0 10px 10px;
+        background-color: #565454;
     }
 
     .score-text {
-
+        display: flex;
+        align-items: center;
+        color: white;
+        font-size: 18px;
     }
 
     .score-count {
-
+        margin-left: 5px;
+        text-anchor: middle;
+        text-decoration: underline;
     }
 
     .quiz__question {
@@ -144,9 +154,4 @@
     .question_wrapper {
         position: absolute;
     }
-
-
-
-
-
 </style>
