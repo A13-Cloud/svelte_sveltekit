@@ -7,12 +7,14 @@
 
     // LOCAL VARIABLES
     let quiz = getQuiz();
+
     let activeQuestion = 0;
     let isModalOpen = false;
 
     async function getQuiz() {
         const response = await fetch("https://opentdb.com/api.php?amount=10&category=21&type=multiple");
-        return await response.json();
+        // return await response.json();
+        return false
     }
 
     const nextQuestion = () => {
@@ -41,6 +43,7 @@
             <span class="new-quiz__text">
                 <b class="new-quiz__bold-text">
                     start new quiz
+                    
                 </b>
             </span>
         </button>
@@ -53,13 +56,16 @@
     </div>
 
     <div class="quiz__question">
-        <b class="question-text">Question</b> #{activeQuestion + 1}
+        <b class="question-text">Question</b>
+        <span class="question-number"> #{activeQuestion + 1} </span>
     </div>
 
     {#await quiz}
-        <span class="loading-text">
-            Loading...
-        </span>
+        <div class="loading-box">
+            <span class="loading-text">
+                Loading...
+            </span>
+        </div>
     {:then data}
         {#each data.results as question, index}
             {#if activeQuestion === index}
@@ -144,12 +150,50 @@
     }
 
     .quiz__question {
-
+        width: 130px;
+        display: flex;
+        justify-content: center;
+        margin: 10px;
+        background-color: #8a718d;
+        padding: 10px;
+        border-radius: 15px;
+        color: #e6c4ea;
+        border-bottom: 2px solid black;
     }
 
-    .question-text {}
+    .question-text {
+        color: white;
+    }
 
-    .loading-text {}
+    .question-number {
+        font-size: 18px;
+        margin-left: 5px;
+    }
+
+    .loading-box {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .loading-text {
+        height: 40px;
+        width: 200px;
+        border-radius: 20px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #8a718d;
+        border-bottom: 4px solid black;
+        visibility: hidden;
+    }
+
+    .loading-text:before {
+        content: "Lorem ";
+        visibility: visible;
+    }
 
     .question_wrapper {
         position: absolute;
