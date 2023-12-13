@@ -43,7 +43,6 @@
             <span class="new-quiz__text">
                 <b class="new-quiz__bold-text">
                     start new quiz
-                    
                 </b>
             </span>
         </button>
