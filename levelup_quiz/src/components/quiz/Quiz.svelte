@@ -13,8 +13,10 @@
 
     async function getQuiz() {
         const response = await fetch("https://opentdb.com/api.php?amount=10&category=21&type=multiple");
-        return await response.json();
-        // return false
+
+        if (response.ok) {
+            return await response.json();
+        }
     }
 
     const nextQuestion = () => {
@@ -89,112 +91,110 @@
 
 
 <!-- STYLE -->
-<style>
+<style lang="scss">
     .quiz__content {
-        height: calc(100% - 40px);
+        height: 280px;
         margin: 20px;
         border-radius: 15px;
         background-color: white;
-    }
 
-    .new-quiz__button {
-        display: flex;
-        justify-content: flex-end;
-        padding: 20px;
-        border-radius: 15px 15px 0 0;
-        background-color: #8a718d;
-    }
+        .new-quiz__button {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px;
+            border-radius: 15px 15px 0 0;
+            background-color: #8a718d;
 
-    .new-quiz {
-        padding: 8px;
-        border-radius: 15px;
-        border: none;
-        cursor: pointer;
-        transition: color 200ms, background-color 200ms;
-    }
+            .new-quiz {
+                padding: 8px;
+                border-radius: 15px;
+                border: none;
+                cursor: pointer;
+                transition: color 200ms, background-color 200ms;
 
-    .new-quiz:hover {
-        background-color: #524555;
-        color: #ffffff;
-    }
+                &:hover {
+                    background-color: #524555;
+                    color: #ffffff;
+                }
 
-    .new-quiz__text {
-        text-transform: capitalize;
-    }
+                .new-quiz__text {
+                    text-transform: capitalize;
 
-    .new-quiz__bold-text {
+                    .new-quiz__bold-text {}
+                }
+            }
+        }
 
-    }
+        .quiz__my-score {
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            border-radius: 0 0 10px 10px;
+            background-color: #565454;
 
-    .quiz__my-score {
-        height: 40px;
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        border-radius: 0 0 10px 10px;
-        background-color: #565454;
-    }
+            .score-text {
+                display: flex;
+                align-items: center;
+                color: white;
+                font-size: 18px;
 
-    .score-text {
-        display: flex;
-        align-items: center;
-        color: white;
-        font-size: 18px;
-    }
+                .score-count {
+                    margin-left: 5px;
+                    text-anchor: middle;
+                    text-decoration: underline;
+                }
+            }
+        }
 
-    .score-count {
-        margin-left: 5px;
-        text-anchor: middle;
-        text-decoration: underline;
-    }
+        .quiz__question {
+            width: 130px;
+            display: flex;
+            justify-content: center;
+            margin: 10px;
+            background-color: #8a718d;
+            padding: 10px;
+            border-radius: 15px;
+            color: #e6c4ea;
+            border-bottom: 2px solid black;
 
-    .quiz__question {
-        width: 130px;
-        display: flex;
-        justify-content: center;
-        margin: 10px;
-        background-color: #8a718d;
-        padding: 10px;
-        border-radius: 15px;
-        color: #e6c4ea;
-        border-bottom: 2px solid black;
-    }
+            .question-text {
+                color: white;
 
-    .question-text {
-        color: white;
-    }
+                .question-number {
+                    font-size: 18px;
+                    margin-left: 5px;
+                }
+            }
+        }
 
-    .question-number {
-        font-size: 18px;
-        margin-left: 5px;
-    }
+        .loading-box {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    .loading-box {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+            .loading-text {
+                height: 40px;
+                width: 200px;
+                border-radius: 20px;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #8a718d;
+                border-bottom: 4px solid black;
+                visibility: hidden;
 
-    .loading-text {
-        height: 40px;
-        width: 200px;
-        border-radius: 20px;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #8a718d;
-        border-bottom: 4px solid black;
-        visibility: hidden;
-    }
+                &:before {
+                    content: "Lorem ";
+                    visibility: visible;
+                }
+            }
+        }
 
-    .loading-text:before {
-        content: "Lorem ";
-        visibility: visible;
-    }
-
-    .question_wrapper {
-        position: absolute;
+        .question_wrapper {
+            position: absolute;
+        }
     }
 </style>

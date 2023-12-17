@@ -25,7 +25,8 @@
 
     .level-up__app {
       width: 100%;
-      padding: 40px 30px;
+      height: 100%;
+      padding: 30px;
       background-color: #524555;
 
       .title {
@@ -33,14 +34,13 @@
         align-items: center;
         justify-content: center;
         color: white;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
 
         .text {
           font-size: 16px;
           padding: 15px 20px;
           border-radius: 15px;
           background-color: dimgrey;
-
         }
       }
 
