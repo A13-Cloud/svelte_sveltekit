@@ -1,10 +1,10 @@
 <script>
-    //IMPORTS
+    // IMPORTS
     import Quiz from "../components/quiz/Quiz.svelte";
 </script>
 
 <!--  HTML  -->
-<section class="level-up__app">
+<main class="level-up__app">
     <h1 class="title">
         <span class="text">
             Level Up Sport
@@ -13,7 +13,7 @@
     <div class="level-up__app-content">
         <Quiz />
     </div>
-</section>
+</main>
 
 <!--  STYLE  -->
 <style lang="scss">
@@ -23,28 +23,28 @@
       box-sizing: border-box;
     }
 
-    .title {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      margin-bottom: 10px;
-
-      .text {
-        background-color: dimgrey;
-        padding: 15px 20px;
-        border-radius: 15px;
-      }
-    }
-
     .level-up__app {
-        width: 100%;
-        height: 100vh;
-        padding: 40px 30px;
-        background-color: #524555;
+      width: 100%;
+      padding: 40px 30px;
+      background-color: #524555;
+
+      .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin-bottom: 10px;
+
+        .text {
+          font-size: 16px;
+          padding: 15px 20px;
+          border-radius: 15px;
+          background-color: dimgrey;
+
+        }
+      }
 
       .level-up__app-content {
-        height: 500px;
         border: 2px solid dimgrey;
         border-radius: 15px;
       }
