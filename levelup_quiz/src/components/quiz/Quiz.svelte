@@ -1,9 +1,9 @@
 <script>
     // IMPORTS
     import Question from "../question/Question.svelte";
-    import {fly} from "svelte/transition";
+    import { fly } from "svelte/transition";
     import Modal from "../modal/Modal.svelte";
-    import {myScore} from "../../store/store";
+    import { myScore } from "../../store/store";
 
     // LOCAL VARIABLES
     let quiz = getQuiz();
@@ -43,21 +43,21 @@
     <div class="new-quiz__button">
         <button class="new-quiz" on:click|once={resetQuiz}>
             <span class="new-quiz__text">
-                <b class="new-quiz__bold-text">
+                <span class="new-quiz__bold-text">
                     start new quiz
-                </b>
+                </span>
             </span>
         </button>
     </div>
 
     <div class="quiz__my-score">
         <span class="score-text">
-            My Score: <b class="score-count">{$myScore}</b>
+            My Score: <span class="score-count">{$myScore}</span>
         </span>
     </div>
 
     <div class="quiz__question">
-        <b class="question-text">Question</b>
+        <span class="question-text">Question</span>
         <span class="question-number"> #{activeQuestion + 1} </span>
     </div>
 
@@ -110,7 +110,7 @@
                 border-radius: 15px;
                 border: none;
                 cursor: pointer;
-                transition: color 200ms, background-color 200ms;
+                transition: color 500ms, background-color 500ms;
 
                 &:hover {
                     background-color: #524555;
@@ -120,7 +120,10 @@
                 .new-quiz__text {
                     text-transform: capitalize;
 
-                    .new-quiz__bold-text {}
+                    .new-quiz__bold-text {
+                      font-size: 12px;
+                      font-weight: bold;
+                    }
                 }
             }
         }
@@ -130,14 +133,13 @@
             display: flex;
             justify-content: center;
             align-content: center;
-            border-radius: 0 0 10px 10px;
             background-color: #565454;
 
             .score-text {
                 display: flex;
                 align-items: center;
                 color: white;
-                font-size: 18px;
+                font-size: 14px;
 
                 .score-count {
                     margin-left: 5px;
@@ -148,21 +150,21 @@
         }
 
         .quiz__question {
-            width: 130px;
+            width: 100px;
             display: flex;
             justify-content: center;
             margin: 10px;
             background-color: #8a718d;
-            padding: 10px;
+            padding: 5px;
             border-radius: 15px;
             color: #e6c4ea;
             border-bottom: 2px solid black;
+            font-size: 14px;
 
             .question-text {
                 color: white;
 
                 .question-number {
-                    font-size: 18px;
                     margin-left: 5px;
                 }
             }

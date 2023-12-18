@@ -1,8 +1,7 @@
-<!-- JS -->
 <script>
     // IMPORTS
-    import {fade, fly} from "svelte/transition";
-    import {createEventDispatcher} from "svelte";
+    import { fade, fly} from "svelte/transition";
+    import { createEventDispatcher } from "svelte";
 
     const dispatch = createEventDispatcher();
 </script>
