@@ -93,6 +93,7 @@
 <!-- STYLE -->
 <style lang="scss">
     .quiz__content {
+        //position: relative;
         height: 280px;
         margin: 20px;
         border-radius: 15px;
@@ -196,6 +197,8 @@
         }
 
         .question_wrapper {
+            width: 100%;
+            white-space: nowrap;
             position: absolute;
         }
     }

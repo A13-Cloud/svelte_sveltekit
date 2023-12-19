@@ -1,7 +1,6 @@
-<!-- JS -->
 <script>
     // IMPORTS
-    import {myScore} from "../../store/store";
+    import { myScore } from "../../store/store";
 
     // EXPORT VARIABLES
     export let questionsData;
@@ -29,6 +28,7 @@
     const shuffle = (array) => {
         array.sort(() => Math.random() - 0.5);
     }
+
     shuffle(allAnswers);
 
     const checkAnswer = (correct) => {
@@ -43,7 +43,7 @@
 </script>
 
 <!-- HTML -->
-<h3>{@html questionsData.question}</h3>
+<p class="questions">{@html questionsData.question}</p>
 
 {#if isAnswered}
     <h5 class:isCorrect>
