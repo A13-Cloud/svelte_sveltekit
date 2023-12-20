@@ -93,7 +93,6 @@
 <!-- STYLE -->
 <style lang="scss">
     .quiz__content {
-        //position: relative;
         height: 280px;
         margin: 20px;
         border-radius: 15px;
@@ -133,7 +132,6 @@
             height: 40px;
             display: flex;
             justify-content: center;
-            align-content: center;
             background-color: #565454;
 
             .score-text {
@@ -197,9 +195,11 @@
         }
 
         .question_wrapper {
-            width: 100%;
-            white-space: nowrap;
+            width: 450px;
+            margin: 5px 10px;
             position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
 </style>

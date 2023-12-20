@@ -43,27 +43,31 @@
 </script>
 
 <!-- HTML -->
-<p class="questions">{@html questionsData.question}</p>
-
-{#if isAnswered}
-    <h5 class:isCorrect>
-        {#if isCorrect}
-            You got it right
-        {:else}
-            You goofed up
+<div class="question__container">
+    <div class="questions__content">
+        <p class="questions">{@html questionsData.question}</p>
+        {#if isAnswered}
+            <span class:isCorrect>
+                {#if isCorrect}
+                    You got it right
+                {:else}
+                    You goofed up
+                {/if}
+            </span>
         {/if}
-    </h5>
-{/if}
+    </div>
+    <div class="answers__content">
+        {#each allAnswers as answer}
+            <button disabled={isAnswered} on:click={() => checkAnswer(answer.correct)}>
+                {@html answer.answer}
+            </button>
+        {/each}
 
-{#each allAnswers as answer}
-    <button disabled={isAnswered} on:click={() => checkAnswer(answer.correct)}>
-        {@html answer.answer}
-    </button>
-{/each}
-
-{#if isAnswered}
-    <button on:click={nextQuestion}>Next Question</button>
-{/if}
+        {#if isAnswered}
+            <button on:click={nextQuestion}>Next Question</button>
+        {/if}
+    </div>
+</div>
 
 <!-- STYLE -->
 <style>
