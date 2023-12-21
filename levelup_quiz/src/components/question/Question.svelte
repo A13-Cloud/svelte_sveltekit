@@ -64,6 +64,8 @@
         {/each}
 
         {#if isAnswered}
+
+            
             <button on:click={nextQuestion}>Next Question</button>
         {/if}
     </div>
