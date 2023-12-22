@@ -58,7 +58,7 @@
 
     <div class="quiz__question">
         <span class="question-text">Question</span>
-        <span class="question-number"> #{activeQuestion + 1} </span>
+        <span class="question-number">#{activeQuestion + 1}</span>
     </div>
 
     {#await quiz}
@@ -101,7 +101,7 @@
         .new-quiz__button {
             display: flex;
             justify-content: flex-end;
-            padding: 20px;
+            padding: 10px;
             border-radius: 15px 15px 0 0;
             background-color: #8a718d;
 

@@ -47,7 +47,7 @@
     <div class="questions__content">
         <p class="questions">{@html questionsData.question}</p>
         {#if isAnswered}
-            <span class:isCorrect>
+            <span class="notCorrect" class:isCorrect>
                 {#if isCorrect}
                     You got it right
                 {:else}
@@ -57,27 +57,74 @@
         {/if}
     </div>
     <div class="answers__content">
-        {#each allAnswers as answer}
-            <button disabled={isAnswered} on:click={() => checkAnswer(answer.correct)}>
-                {@html answer.answer}
-            </button>
-        {/each}
+        <div class="answers">
+            {#each allAnswers as answer}
+                <button
+                        class="answer__button"
+                        disabled={isAnswered}
+                        on:click={() => checkAnswer(answer.correct)}
+                >
+                    {@html answer.answer}
+                </button>
+            {/each}
+        </div>
 
-        {#if isAnswered}
 
-            
-            <button on:click={nextQuestion}>Next Question</button>
-        {/if}
+        <div class="next__button">
+            {#if isAnswered}
+                <button class="next" on:click={nextQuestion}>
+                    Next Question
+                </button>
+            {/if}
+        </div>
     </div>
 </div>
 
 <!-- STYLE -->
 <style>
-    h5 {
+    .question__container {
+
+    }
+
+    .questions__content {
+        font-size: 14px;
+    }
+
+    .questions {
+        margin-bottom: 10px;
+    }
+
+    .notCorrect {
         color: red;
+        padding: 4px;
+        border-radius: 15px;
+        border: 1px solid dimgray;
+        font-size: 10px;
     }
 
     .isCorrect {
         color: forestgreen;
+        padding: 4px;
+        border-radius: 15px;
+        border: 1px solid dimgray;
+        font-size: 10px;
     }
+
+    .answers__content {
+        width: 100%;
+        background-color: red;
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .answers {}
+
+    .answer__button {}
+
+    .next__button {}
+
+    .next {}
 </style>
