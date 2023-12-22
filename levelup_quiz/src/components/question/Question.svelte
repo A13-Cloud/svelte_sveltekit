@@ -69,7 +69,6 @@
             {/each}
         </div>
 
-
         <div class="next__button">
             {#if isAnswered}
                 <button class="next" on:click={nextQuestion}>
@@ -83,7 +82,8 @@
 <!-- STYLE -->
 <style>
     .question__container {
-
+        display: flex;
+        flex-direction: column;
     }
 
     .questions__content {
@@ -112,19 +112,34 @@
 
     .answers__content {
         width: 100%;
-        background-color: red;
         margin-top: 10px;
         display: flex;
         align-items: center;
-        justify-content: center;
         flex-direction: column;
     }
 
-    .answers {}
+    .answers {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-    .answer__button {}
+    .answer__button {
+        height: 20px;
+        padding: 0 5px;
+        margin-bottom: 5px;
+        font-size: 10px;
+    }
 
-    .next__button {}
+    .next__button {
+        display: flex;
+    }
 
-    .next {}
+    .next {
+        height: 20px;
+        padding: 0 5px;
+        font-size: 10px;
+    }
 </style>

@@ -129,7 +129,7 @@
         }
 
         .quiz__my-score {
-            height: 40px;
+            height: 30px;
             display: flex;
             justify-content: center;
             background-color: #565454;
@@ -152,7 +152,7 @@
             width: 100px;
             display: flex;
             justify-content: center;
-            margin: 10px;
+            margin: 5px 10px;
             background-color: #8a718d;
             padding: 5px;
             border-radius: 15px;
