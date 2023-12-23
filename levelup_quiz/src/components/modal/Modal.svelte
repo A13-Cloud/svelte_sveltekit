@@ -10,6 +10,7 @@
 <div class="modal_wrapper" transition:fade>
     <div class="modal" transition:fly={{y: -150}}>
         <button
+            class="close_button"
             on:click={() => {
                 // You can choose other name of dispatcher
                 dispatch("close");

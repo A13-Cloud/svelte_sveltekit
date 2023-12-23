@@ -82,9 +82,8 @@
 
     {#if isModalOpen}
         <Modal on:close={resetQuiz}>
-            <h2>You Won!</h2>
-            <p>Congratulations</p>
-            <button on:click={resetQuiz}>Start Over</button>
+            <h2 class="modal_title">Congratulations You Won!</h2>
+            <button class="start_button" on:click={resetQuiz}>Start Over</button>
         </Modal>
     {/if}
 </div>
@@ -201,5 +200,9 @@
             left: 50%;
             transform: translateX(-50%);
         }
+
+        .modal_title {}
+
+        .start_button {}
     }
 </style>
