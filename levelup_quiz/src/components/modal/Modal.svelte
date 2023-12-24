@@ -38,6 +38,11 @@
         background-color: white;
         padding: 20px;
         border-radius: 15px;
+
+        .close_button {
+          font-size: 10px;
+          margin-bottom: 10px;
+        }
       }
     }
 </style>

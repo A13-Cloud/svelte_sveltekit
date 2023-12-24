@@ -201,8 +201,13 @@
             transform: translateX(-50%);
         }
 
-        .modal_title {}
+        .modal_title {
+          font-size: 14px;
+        }
 
-        .start_button {}
+        .start_button {
+          margin-top: 10px;
+          font-size: 10px;
+        }
     }
 </style>
